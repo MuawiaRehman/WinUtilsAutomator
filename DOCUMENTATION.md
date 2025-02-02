@@ -1,18 +1,15 @@
-
----
-
 # WinUtilsAutomator Documentation
 
 **Version**: v1.0.0  
 **Description**:  
-This documentation provides detailed information on using and contributing to **WinUtilsAutomator**, a collection of batch scripts designed to automate Windows installation, disk partitioning, and configuration tasks. The project is built around the **DISM** tool and will expand with additional utilities over time.
+This documentation provides detailed instructions for using **WinUtilsAutomator**, a collection of batch scripts and utilities designed to automate Windows setup and configuration tasks. The project includes a sub-project named **WinBatchInstaller**, which simplifies Windows installation and configuration through batch scripts.
 
 ---
 
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Script Details](#script-details)
+2. [WinBatchInstaller](#winbatchinstaller)
    - [win-installer.bat](#win-installerbat)
    - [disk-partitioning.bat](#disk-partitioningbat)
    - [dism.bat](#dismbat)
@@ -26,39 +23,42 @@ This documentation provides detailed information on using and contributing to **
 
 ## Overview
 
-**WinUtilsAutomator** is a collection of batch scripts designed to automate the installation of Windows in either UEFI or BIOS mode, handle disk partitioning, apply Windows images, and configure bootloaders. The utility will continue to expand with more features, making it an all-in-one tool for Windows setup and configuration.
+**WinUtilsAutomator** is a collection of batch scripts designed to automate various Windows installation, configuration, and management tasks. The main feature of the project is **WinBatchInstaller**, which automates the Windows installation process for both UEFI and BIOS modes. The toolset aims to streamline Windows setup by simplifying disk partitioning, image deployment, and bootloader configuration.
 
 ---
 
-## Script Details
+## WinBatchInstaller
 
-### win-installer.bat
-The main script for managing the installation process. It presents the user with an interactive menu for selecting the installation mode (UEFI or BIOS), and allows cancellation of the installation.
+**WinBatchInstaller** is a sub-project that includes the following batch scripts for automating Windows installation:
 
-- **UEFI Mode**: Sets up partitions in UEFI-compatible format.
-- **BIOS Mode**: Uses MBR partitioning for legacy BIOS installations.
+### 1. win-installer.bat
+The main script that provides an interactive menu for users to:
+- Install Windows in UEFI Mode.
+- Install Windows in BIOS Mode.
+- Cancel the installation.
 
-### disk-partitioning.bat
-This script handles partitioning tasks based on the selected installation mode. It:
+### 2. disk-partitioning.bat
+Responsible for partitioning the disk based on the selected installation mode:
+- In **UEFI Mode**, it creates an EFI partition and a primary NTFS partition.
+- In **BIOS Mode**, it creates a single NTFS partition and converts the disk to MBR.
 
-- Creates an EFI partition and a primary NTFS partition in **UEFI Mode**.
-- Converts the disk to **MBR** and creates a single NTFS partition in **BIOS Mode**.
-
-### dism.bat
-This script applies the Windows image to the target disk:
-- It extracts the appropriate edition from the `install.wim` file.
-- It applies the Windows edition to the designated disk and configures the bootloader for UEFI or BIOS installation.
+### 3. dism.bat
+This script applies the Windows image to the NTFS partition:
+- Extracts the Windows edition from `install.wim`.
+- Applies the selected Windows edition to the target disk.
+- Configures the bootloader for the selected installation mode.
 
 ---
 
 ## Installation and Setup
 
 1. **Download and Prepare**:  
-   - Download the **WinUtilsAutomator** batch scripts (win-installer.bat, disk-partitioning.bat, dism.bat) from the GitHub repository.
+   - Download the **WinUtilsAutomator** batch scripts (`win-installer.bat`, `disk-partitioning.bat`, `dism.bat`) from the GitHub repository.
    - Place all batch files in the same directory.
    - Copy these scripts to a USB flash drive or any removable media.
 
-2. **Windows Installation Media**:  
+2. **Windows Installation Media**:
+   - WinBatchInstaller scripts containing USB.  
    - Ensure you have a Windows installation ISO mounted as a virtual drive or on a USB drive.
    - You will also need a target disk for the Windows installation.
 
@@ -112,4 +112,3 @@ We welcome contributions to **WinUtilsAutomator**! If you would like to add new 
 **WinUtilsAutomator** is open-source and released under the MIT License.
 
 ---
-

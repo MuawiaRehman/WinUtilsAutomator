@@ -10,9 +10,9 @@ This documentation provides detailed instructions for using **WinUtilsAutomator*
 
 1. [Overview](#overview)
 2. [WinBatchInstaller](#winbatchinstaller)
-   - [win-installer.bat](#win-installer.bat)
-   - [disk-partitioning.bat](#disk-partitioning.bat)
-   - [dism.bat](#dism.bat)
+   - [win-installer.bat](#win-installerbat)
+   - [disk-partitioning.bat](#disk-partitioningbat)
+   - [dism.bat](#dismbat)
 3. [Installation and Setup](#installation-and-setup)
 4. [Usage Instructions](#usage-instructions)
 5. [Advanced Usage](#advanced-usage)

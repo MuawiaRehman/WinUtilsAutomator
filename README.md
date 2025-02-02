@@ -1,55 +1,35 @@
-
----
-
 # WinUtilsAutomator
 
 **Version**: v1.0.0  
 **Description**:  
-WinUtilsAutomator is a collection of batch scripts designed to automate various Windows setup and configuration tasks, including the installation of Windows in either UEFI or BIOS mode. The scripts handle disk partitioning, applying Windows images.
+**WinUtilsAutomator** is a collection of utilities and batch scripts designed to simplify and automate various Windows setup and configuration tasks.<br>The project includes a sub-project called <i>**WinBatchInstaller**</i>, which automates the Windows installation process in both UEFI and BIOS modes. It also provides functionality for disk partitioning and applying Windows images with the **DISM** tool. Over time, more utilities and tools will be added to the project.
 
-## Included Scripts
+---
 
-### 1. win-installer.bat
-This script serves as the main installer menu, allowing users to:
-- Install Windows in UEFI Mode
-- Install Windows in BIOS Mode
-- Cancel the installation
+## Sub-Project: WinBatchInstaller
 
-### 2. disk-partitioning.bat
-Handles the partitioning of the selected disk based on the chosen installation mode:
-- **UEFI Mode**: Creates an EFI partition (500MB, FAT32) and a primary NTFS partition.
-- **BIOS Mode**: Creates a single NTFS partition after converting the disk to MBR.
+**WinBatchInstaller** is a set of batch scripts focused on automating the Windows installation process. It handles disk partitioning, applying Windows images, and configuring bootloaders for both UEFI and BIOS modes.
 
-### 3. dism.bat
-Deploys the Windows image to the NTFS partition:
-- Extracts the Windows edition from `install.wim`
-- Applies the selected Windows edition to the target disk
-- Configures the bootloader for UEFI or BIOS installation
+### Included Scripts
 
-## Installation Instructions
+#### 1. win-installer.bat
+- Main script for starting the installation process.
+- Allows users to choose between UEFI or BIOS installation modes.
 
-For detailed installation instructions, please refer to the [Documentation](DOCUMENTATION.md) file.
+#### 2. disk-partitioning.bat
+- Handles partitioning of the selected disk for installation.
+- Creates the necessary partitions depending on the selected installation mode (UEFI or BIOS).
 
+#### 3. dism.bat
+- Applies the Windows image to the selected partition.
+- Configures the bootloader for the selected mode.
 
-## Requirements
+For more detailed installation instructions, please refer to the [Documentation](DOCUMENTATION.md) file.
 
-- usb with the above scripts.
-- Windows installation ISO mounted as a virtual drive.
-- A target disk for installation.
-- Administrator privileges.
-
-## Notes
-
-- Ensure the correct disk number is selected to prevent accidental data loss.
-- The EFI partition letter defaults to F, and the NTFS partition letter defaults to C.
-
-## License
-
-This project is open-source and available under the MIT License.
+---
 
 ## Contributing
 
-Further improvements, enhancements, and additional Windows utilities are coming to this project. Feel free to contribute!
-For more detailed instructions and guidance, see the [Documentation](DOCUMENTATION.md).
+Further improvements, enhancements, and additional Windows utilities are coming to this project.
 
 ---

@@ -28,23 +28,12 @@ Deploys the Windows image to the NTFS partition:
 
 ## Installation Instructions
 
-1. Place all batch scripts (`win-installer.bat`, `disk-partitioning.bat`, `dism.bat`) in the same directory.
-2. Copy the scripts to a USB drive, pendrive, or any flashable disk.
-3. Plug the USB drive into your PC **before** booting the Windows installation media.
-4. Boot into the Windows setup screen, then press **Shift + F10** to open the command prompt.
-5. Run `diskpart` to list the volumes by typing:  
-   `list volume`  
-   Identify the volume where the script is located.
-6. Exit from `diskpart` and type the script volume drive letter:  
-   `<volume letter:>`  
-   You should now be in the script directory.
-7. Run `win-installer.bat` to start the installation process.
-8. Follow the on-screen instructions to complete the Windows installation.
-9. Once installation is complete, exit the command prompt, close the Windows setup screen, and the system will reboot.
-10. During the reboot, remove the USB drive and installation media.
+For detailed installation instructions, please refer to the [Documentation](DOCUMENTATION.md) file.
+
 
 ## Requirements
 
+- usb with the above scripts.
 - Windows installation ISO mounted as a virtual drive.
 - A target disk for installation.
 - Administrator privileges.
